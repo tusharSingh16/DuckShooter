@@ -1,6 +1,7 @@
 package levels;
 
-import entities.Duck;
+//import entities.Duck;
+import entities.Target;
 import main.Game;
 
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.util.Random;
 public class DuckTopManager {
     private Level curLevel;
     private Random rand;
-    private ArrayList<Duck> ducks;
+    private ArrayList<Target> ducks;
 
     private float yPos;
 
@@ -37,7 +38,7 @@ public class DuckTopManager {
             tick = rand.nextInt(curLevel.spanSpeedMin, curLevel.spanSpeedMax);
             if (spanned < curLevel.totalSpan) {
                 int xPos = rand.nextInt(-800, -100);
-                Duck t = new Duck(xPos, yPos, rand.nextInt(curLevel.speedMin, curLevel.speedMax));
+                Target t = new Target(xPos, yPos, rand.nextInt(curLevel.speedMin, curLevel.speedMax), "Duck");
                 ducks.add(t);
                 spanned++;
             }
@@ -45,8 +46,8 @@ public class DuckTopManager {
             tick--;
         }
 
-        for (Duck duck : ducks) {
-            duck.update();
+        for (int i=0;i<ducks.size();i++) {
+            ducks.get(i).update();
         }
 
         for (int i=0;i<ducks.size();i++) {

@@ -2,7 +2,6 @@ package entities;
 
 import main.Game;
 import utility.Constants;
-import utility.LoadSave;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,8 +18,6 @@ public class Target extends Entity implements isShootable {
 
     private BufferedImage shotImg;
     private ArrayList<Point> shotsXY;
-
-    private String shotHit;
 
     private int shots;
     private int speed;
@@ -40,13 +37,33 @@ public class Target extends Entity implements isShootable {
         shotsXY = new ArrayList<>();
         shots = 0;
 
-        shotHit = "/Users/devanshu/IdeaProjects/DuckShooter/res/target.wav";
+        tick = 0;
+        this.speed = speed;
+
+        score = 0;
+    }
+
+    public Target(float x, float y, int speed, String str) {
+        super(x, y);
+        targetInUse = targetIdle = Game.sprites.objects[Constants.objects.DUCKS[rand.nextInt(0, Constants.objects.DUCKS.length)]];
+        targetShot = Game.sprites.objects[Constants.objects.DUCK_OUTLINE_BACK];
+
+        int stickIndex = rand.nextInt(0, Constants.objects.STICKS.length);
+        stickInUse = stickIdle = Game.sprites.objects[Constants.objects.STICKS[stickIndex]];
+        stickShot = Game.sprites.objects[Constants.objects.STICKS_BROKEN[stickIndex]];
+
+        shotImg = Game.sprites.objects[Constants.objects.SHOTS[rand.nextInt(0, Constants.objects.SHOTS.length)]];
+        shotsXY = new ArrayList<>();
+        shots = 0;
+
+
 
         tick = 0;
         this.speed = speed;
 
         score = 0;
     }
+
     public void update() {
         if (tick >= speed) {
             this.x+=1;

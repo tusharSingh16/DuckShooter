@@ -32,6 +32,7 @@ public class LevelManager {
         this.game = game;
         curLevel = new Level();
 
+//        shotHit = "/Users/devanshu/IdeaProjects/DuckShooter/res/gunshot2.wav";
         shotHit = "gunshot2";
         shotMiss = "missed";
 //        curLevel.updateLevel();

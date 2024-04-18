@@ -1,3 +1,7 @@
+/*
+
+NOT USING ANYMORE
+
 package entities;
 
 import main.Game;
@@ -5,6 +9,7 @@ import utility.Constants;
 import utility.LoadSave;
 
 import java.awt.*;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -106,3 +111,5 @@ public class Duck extends Entity implements isShootable {
         }
     }
 }
+
+ */

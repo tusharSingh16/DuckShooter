@@ -6,6 +6,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.io.File;
 import javax.imageio.ImageIO;
