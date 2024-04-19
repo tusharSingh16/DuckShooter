@@ -1,22 +1,24 @@
   
  
-# Duck Shooter
-2D Shooting Game
-─
-Team Member
-1.Devanshu
-2.Sakcham
-3.Domendra
-4.Tushar
+# Duck Shooter 
+2D Shooting Game <br>
+─<br>
+
+
+Team Member <br>
+1.Devanshu <br>
+2.Sakcham <br>
+3.Domendra <br>
+4.Tushar <br>
 
 
 # Table of Content
 
-1.	Introduction
+1.	Introduction 
 2.	Objective
-3.	Implementation Details
-    3.1 Gameplay Overview
-    3.2 Implementation of OOP’s
+3.	Implementation Details <br>
+    3.1 Gameplay Overview <br>
+    3.2 Implementation of OOP’s <br>
 4.	Code Sample
 5.	Future Scope
 6.	Conclusion
@@ -121,12 +123,12 @@ utility: The “utility” folder stores utility classes ( loadsave, constants, 
 
 # Future Scope
 
-●	Despite reaching this milestone, there are still areas for improvement and expansion in the project.
-●	Future plans may include implementing additional game features, enhancing graphics and audio, optimizing performance.
-●	Additional game modes, such as time trials or survival modes.
-●	More diverse duck behaviors and movement patterns to increase gameplay variety.
-●	Integration of online leaderboards to allow players to compete for high scores.
-●	Support for customizable controls and settings to cater to individual player preferences.
+●	Despite reaching this milestone, there are still areas for improvement and expansion in the project. <br>
+●	Future plans may include implementing additional game features, enhancing graphics and audio, optimizing performance. <br>
+●	Additional game modes, such as time trials or survival modes.<br>
+●	More diverse duck behaviors and movement patterns to increase gameplay variety.<br>
+●	Integration of online leaderboards to allow players to compete for high scores.<br>
+●	Support for customizable controls and settings to cater to individual player preferences.<br>
 
 
 # Conclusion
@@ -138,7 +140,7 @@ In conclusion, the development of the 2D Duck Shooter Game in Java has provided 
 
 
 # References
-●	Oracle Java Documentation: https://docs.oracle.com/javase/
-●	Stack Overflow: https://stackoverflow.com/
-●	Java Game Development Tutorials:https://www.youtube.com/@KaarinGaming
-
+●	Oracle Java Documentation: https://docs.oracle.com/javase/ <br>
+●	Stack Overflow: https://stackoverflow.com/ <br>
+●	Java Game Development Tutorials:https://www.youtube.com/@KaarinGaming <br>
+●	Kenny :https://www.kenney.nl/assets/shooting-gallery 
