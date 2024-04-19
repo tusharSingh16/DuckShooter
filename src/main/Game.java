@@ -1,5 +1,8 @@
 package main;
 
+import gamestates.Gamestate;
+import gamestates.Menu;
+import gamestates.Playing;
 import levels.LevelManager;
 import utility.Sprites;
 
@@ -26,6 +29,10 @@ public class Game implements Runnable{
 
     private LevelManager lvlManager;
 
+    // states
+    private Playing playing;
+    private Menu menu;
+
     public Game() {
         sprites = new Sprites();
 
@@ -39,15 +46,37 @@ public class Game implements Runnable{
     }
 
     private void initClasses() {
-        lvlManager = new LevelManager(this);
+        menu = new Menu(this);
+        playing = new Playing(this);
     }
 
     public void update() {
-        lvlManager.update();
+        switch(Gamestate.state)
+        {
+            case MENU :
+                menu.update();
+                gameWindow.setCursorVisible();
+                break;
+            case PLAYING:
+                playing.update();
+                gameWindow.setCursorInvisible();
+                break;
+            default:
+                break;
+        }
     }
 
     public void render(Graphics g) {
-        lvlManager.draw(g);
+        switch (Gamestate.state) {
+            case MENU:
+                menu.draw(g);
+                break;
+            case PLAYING:
+                playing.draw(g);
+                break;
+            default:
+                break;
+        }
     }
 
     private void startGameLoop() {
@@ -95,7 +124,12 @@ public class Game implements Runnable{
         }
     }
 
-    public LevelManager getlvlManager() {
-        return lvlManager;
+    public Menu getMenu()
+    {
+        return menu;
+    }
+    public Playing getPlaying()
+    {
+        return playing;
     }
 }
