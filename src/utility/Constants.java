@@ -1,7 +1,9 @@
-package utility;
+package utility; // Package declaration for the 'utility' package
 
-// To save values that will stay constant throughout the game
+
+// Class containing constant values used throughout the game
 public class Constants {
+    // Inner class containing constants related to the Heads-up Display (HUD)
     public static class Hud {
         public static final int CROSSHAIR_BLUE_LARGE = 0;
         public static final int CROSSHAIR_BLUE_SMALL = 1;
@@ -52,6 +54,8 @@ public class Constants {
         public static final int TEXT_SCORE_SMALL = 46;
         public static final int TEXT_TIMEUP = 47;
     }
+
+    // Inner class containing constants related to game objects
     public static class objects {
         public static final int DUCK_BACK = 0;
         public static final int DUCK_BROWN = 1;
@@ -110,6 +114,8 @@ public class Constants {
         public static final int[] STICKS_BROKEN = new int[]{STICK_METAL_BROKEN, STICK_WOOD_OUTLINE_BROKEN, STICK_WOOD_OUTLINE_BROKEN};
 
     }
+
+    // Inner class containing constants related to stall elements
     public static class stall {
         public static final int BG_BLUE = 0;
         public static final int BG_GREEN = 1;
