@@ -6,9 +6,18 @@ import inputs.MouseInputs;
 import javax.swing.*;
 import java.awt.*;
 
-// GamePanel - Working area or panel for the game (InnerShell)
+/** 
+ *  GamePanel - Working area or panel for the game (InnerShell)
+ */
 public class GamePanel extends JPanel {
     private final Game game;
+    /**
+     * Construct of {@GamePanel} class.
+     * <ul>
+     * <li>{@code setPanelSize()}: Set the size of the game panel({@code JPanel})
+     * <li>Adding the event listeners
+     * </ul>
+     */
     GamePanel(Game game) {
         this.game = game;
         setPanelSize();

@@ -15,27 +15,31 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.image.BufferedImage;
 
-// To Load or Save (Sprite sheets)
+// Class for loading and saving sprite sheets
 public class LoadSave {
+
+    // Constants for different sprite sheet types
     public static final String HUD = "spritesheet_hud";
     public static final String OBJECTS = "spritesheet_objects";
     public static final String STALL = "spritesheet_stall";
 
+    // Method to load sprites from a sprite sheet based on metadata
     public static BufferedImage[] LoadSprites(String filename) {
-        ArrayList<ArrayList<String>> metaData = readXML(filename);
-        BufferedImage img = getSpriteAtlas(filename);
+        ArrayList<ArrayList<String>> metaData = readXML(filename); // Read metadata from XML
+        BufferedImage img = getSpriteAtlas(filename); // Get sprite atlas image
 
-        BufferedImage[] imgs = new BufferedImage[metaData.size()];
+        BufferedImage[] imgs = new BufferedImage[metaData.size()]; // Create array to store sub-images
         for (int i=0;i<metaData.size();i++) {
             int x = Integer.parseInt(metaData.get(i).get(1));
             int y = Integer.parseInt(metaData.get(i).get(2));
             int width = Integer.parseInt(metaData.get(i).get(3));
             int height = Integer.parseInt(metaData.get(i).get(4));
-            imgs[i] = img.getSubimage(x, y, width, height);
+            imgs[i] = img.getSubimage(x, y, width, height); // Extract sub-image from sprite atlas
         }
         return imgs;
     }
 
+     // Method to load the sprite atlas image
     public static BufferedImage getSpriteAtlas(String filename) {
         BufferedImage img = null;
         try {
@@ -47,6 +51,7 @@ public class LoadSave {
     }
 
 
+    // Method to read metadata from an XML file
     public static ArrayList<ArrayList<String>> readXML(String filename) {
         ArrayList<ArrayList<String>> spriteMetadata = new ArrayList<>();
         try {
@@ -90,6 +95,7 @@ public class LoadSave {
         return spriteMetadata;
     }
 
+    // Method to play a sound file
     public static synchronized void playSound(final String filename) {
         new Thread(new Runnable() {
             public void run() {

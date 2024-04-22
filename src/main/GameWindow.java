@@ -8,7 +8,9 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.awt.image.BufferedImage;
 
-// GameWindow - A frame for the Panel to stick on (OuterShell)
+/**
+ * GameWindow - A frame for the Panel to stick on (OuterShell)
+*/
 public class GameWindow {
     private JFrame jFrame;
 
@@ -26,12 +28,16 @@ public class GameWindow {
 
     }
 
-    // Hides the cursor in application
+/** 
+ * {@code setCursorInvisible()}: Hides the cursor in application.
+*/
     public void setCursorInvisible() {
         Cursor invisibleCursor = Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB), new Point(0, 0), "invisibleCursor");
         jFrame.setCursor(invisibleCursor);
     }
-
+/**
+ * {@code setCursorVisible()}: Makes the cursor visible outside the game window
+ */
     public void setCursorVisible() {
         Cursor invisibleCursor = Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB), new Point(0, 0), "invisibleCursor");
         jFrame.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
