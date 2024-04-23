@@ -38,7 +38,7 @@ public class Info extends State implements Statemethods{
         } // drawing the background for info screen
         g.setColor(Color.WHITE);
         g.setFont(new Font("TimesRoman",Font.BOLD,22));
-        g.drawString("Credits : Devanshu Domeindra Sakcham Tushar", Game.GAME_WIDTH/2 -240, Game.GAME_HEIGHT/2);
+        g.drawString("Credits : Devanshu Domendra Sakcham Tushar", Game.GAME_WIDTH/2 -240, Game.GAME_HEIGHT/2);
         g.drawImage(backButtonInUse,Game.GAME_WIDTH/2 - backButtonIdle.getWidth()/2, Game.GAME_HEIGHT/4 - backButtonIdle.getHeight()/2, null); // creates back button to return to main menu
     }
 

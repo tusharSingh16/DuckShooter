@@ -80,7 +80,7 @@ public class Menu extends State implements Statemethods {
             g.drawImage(playButtonInUse, Game.GAME_WIDTH / 2 - playButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 - playButtonIdle.getHeight() / 2, null);
             g.drawImage(infoButtonInUse, Game.GAME_WIDTH / 2 - playButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 - infoButtonIdle.getHeight() / 2, null);
             g.drawImage(backButtonInUse, Game.GAME_WIDTH / 2 - backButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 - backButtonIdle.getHeight() / 2, null);
-            g.drawImage(resumeButtonIdle, Game.GAME_WIDTH/2 - resumeButtonInUse.getWidth()/2, Game.GAME_HEIGHT/4 - TILES_SIZE *2 - resumeButtonInUse.getHeight()/2, null);
+            g.drawImage(resumeButtonInUse, Game.GAME_WIDTH/2 - resumeButtonInUse.getWidth()/2, Game.GAME_HEIGHT/4 - TILES_SIZE *2 - resumeButtonInUse.getHeight()/2, null);
         }
     }
 
@@ -117,7 +117,6 @@ public class Menu extends State implements Statemethods {
         if (xPos >= Game.GAME_WIDTH / 2 - resumeButtonIdle.getWidth() / 2 && xPos <= Game.GAME_WIDTH / 2 + resumeButtonIdle.getWidth() / 2) {
             if (yPos >= Game.GAME_HEIGHT / 4 - TILES_SIZE * 2 -  resumeButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + resumeButtonIdle.getHeight() / 2) {
                 resumeButtonInUse = resumeButtonHover;
-                System.out.println("HI");
             } else resumeButtonInUse = resumeButtonIdle;
             if (yPos >= Game.GAME_HEIGHT / 4 - playButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + playButtonIdle.getHeight() / 2) {
                 playButtonInUse = playButtonHover;

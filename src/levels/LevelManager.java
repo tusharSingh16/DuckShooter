@@ -2,6 +2,7 @@ package levels;
 
 import java.awt.*;
 
+import entities.Target;
 import frames.*;
 import entities.Crosshair;
 import main.Game;
@@ -20,8 +21,8 @@ public class LevelManager { // Declaring the public class 'LevelManager'
     private TopFrame tf;
 
     private TargetManager tm;
-    private DuckTopManager dtm;
-    private DuckBottomManager dbm;
+    private TargetManager dtm;
+    private TargetManager dbm;
     private Crosshair crosshair;
 
     private int scoreCounter ;
@@ -36,12 +37,9 @@ public class LevelManager { // Declaring the public class 'LevelManager'
         this.game = game; // Assigning the 'game' parameter to the 'game' instance variable
         curLevel = new Level(); // Creating a new 'Level' object and assigning it to 'curLevel'
 
-//        shotHit = "/Users/devanshu/IdeaProjects/DuckShooter/res/gunshot2.wav";
         // Setting file paths for sound effects
         shotHit = "gunshot2";
         shotMiss = "missed";
-//        curLevel.updateLevel();
-//        curLevel.updateLevel();
 
         // Updating the level initially
         curLevel.updateLevel();
@@ -59,9 +57,9 @@ public class LevelManager { // Declaring the public class 'LevelManager'
         if3 = new IntermediateFrame3();
         tf = new TopFrame();
         crosshair = new Crosshair(0, 0, this);
-        tm = new TargetManager(curLevel);
-        dtm = new DuckTopManager(curLevel);
-        dbm = new DuckBottomManager(curLevel);
+        tm = new TargetManager(curLevel, TargetManager.Y_POS_TOP);
+        dtm = new TargetManager(curLevel, TargetManager.Y_POS_MIDDLE);
+        dbm = new TargetManager(curLevel, TargetManager.Y_POS_BOTTOM);
     }
 
     // Method to update the game state
@@ -77,9 +75,9 @@ public class LevelManager { // Declaring the public class 'LevelManager'
             curLevel.updateLevel(); // Updating the current level
 
             // Re-initializing target manager and duck managers for the new level
-            tm = new TargetManager(curLevel);
-            dtm = new DuckTopManager(curLevel);
-            dbm = new DuckBottomManager(curLevel);
+            tm = new TargetManager(curLevel, TargetManager.Y_POS_TOP);
+            dtm = new TargetManager(curLevel, TargetManager.Y_POS_MIDDLE);
+            dbm = new TargetManager(curLevel, TargetManager.Y_POS_BOTTOM);
         }
     }
     // Method to draw all elements on the screen
@@ -95,8 +93,8 @@ public class LevelManager { // Declaring the public class 'LevelManager'
         tf.render(g); // Rendering the top frame
         g.drawString("Current Level: " + curLevel.curLevel,  Game.GAME_WIDTH-110, Game.GAME_HEIGHT-10);//Displaying current level information on screen
         g.setFont(new Font("Arial",Font.BOLD,20));
-        g.setColor(Color.WHITE);
-        g.drawString("Current Score: " + scoreCounter, Game.GAME_WIDTH /2 , 20);//Displaying the score
+        g.setColor(Color.ORANGE);
+        g.drawString("Score: " + scoreCounter, Game.GAME_WIDTH - Game.TILES_SIZE*4 , 30);//Displaying the score
 
 
     }
@@ -111,9 +109,10 @@ public class LevelManager { // Declaring the public class 'LevelManager'
         // Playing sound effects based on whether any target or duck was hit
         if (hit1 || hit2 || hit3) {
             LoadSave.playSound(shotHit);// Playing the gunshot sound
-            scoreCounter ++;
+            scoreCounter+=2;
         } else {
             LoadSave.playSound(shotMiss);// Playing the miss sound
+            scoreCounter--;
         }
     }
 

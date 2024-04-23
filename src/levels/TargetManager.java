@@ -10,10 +10,13 @@ import java.util.Random;
 public class TargetManager { // Declaring the public class 'TargetManager'
     private Level curLevel; // Declaring a private instance variable 'curLevel' of type 'Level'
     private Random rand; // Declaring a private instance variable 'rand' of type 'Random'
-    private ArrayList<Target> targets; // Declaring a private instance variable 'targets' of type 'ArrayList<Target>'
+    public ArrayList<Target> targets; // Declaring a private instance variable 'targets' of type 'ArrayList<Target>'
 
 
     private float yPos;// Declaring a private instance variable 'yPos' of type 'float'
+    public final static int Y_POS_TOP = Game.TILES_SIZE*6;
+    public final static int Y_POS_MIDDLE = Game.TILES_SIZE*11;
+    public final static int Y_POS_BOTTOM  = Game.TILES_SIZE*14;
 
 
     private int tick;// Declaring a private instance variable 'tick' of type 'int'
@@ -23,10 +26,12 @@ public class TargetManager { // Declaring the public class 'TargetManager'
     private boolean isDestroyed; // Declaring a private instance variable 'isDestroyed' of type 'boolean'
 
      // Constructor for the 'TargetManager' class, taking a 'Level' parameter
-    public TargetManager(Level curLevel) {
+    public TargetManager(Level curLevel, int yPos) {
         isDestroyed = false;
 
         this.curLevel = curLevel;// Assigning the 'curLevel' parameter to the instance variable 'curLevel'
+        this.yPos = yPos;
+
         rand = new Random(); // Initializing the 'rand' instance variable with a new instance of 'Random'
         targets = new ArrayList<>();  // Initializing the 'targets' instance variable with a new ArrayList
 
@@ -48,8 +53,17 @@ public class TargetManager { // Declaring the public class 'TargetManager'
                 int xPos = rand.nextInt(-300, -100); // Generating a random x position for the new target
 
                 // Creating a new target with random attributes and adding it to the targets list
-                Target t = new Target(xPos, yPos, rand.nextInt(curLevel.speedMin, curLevel.speedMax));
-                targets.add(t);
+                Target t = null;
+                if (yPos == Y_POS_TOP) {
+                    t = new Target(xPos, yPos, rand.nextInt(curLevel.speedMin, curLevel.speedMax));
+                } else if (yPos == Y_POS_MIDDLE) {
+                    t = new Target(xPos, yPos, rand.nextInt(curLevel.speedMin, curLevel.speedMax), "duck");
+                } else if (yPos == Y_POS_BOTTOM) {
+                    t = new Target(xPos, yPos, rand.nextInt(curLevel.speedMin, curLevel.speedMax), "duck");
+                }
+                if (t != null) {
+                    targets.add(t);
+                }
 
                 spanned++; // Incrementing the count of spawned targets
             }

@@ -1,3 +1,5 @@
+/*
+
 package levels;
 
 //import entities.Duck;
@@ -94,3 +96,6 @@ public class DuckTopManager { // Declaring the public class 'DuckTopManager'
         return isDestroyed; // Returning the value of 'isDestroyed'
     }
 }
+
+
+ */

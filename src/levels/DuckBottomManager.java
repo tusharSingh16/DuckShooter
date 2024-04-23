@@ -1,3 +1,5 @@
+/*
+
 package levels;
 
 //import entities.Duck;
@@ -98,3 +100,6 @@ public class DuckBottomManager {
 
     }
 }
+
+
+ */
