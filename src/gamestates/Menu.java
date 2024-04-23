@@ -49,7 +49,7 @@ public class Menu extends State implements Statemethods {
         backButtonInUse = backButtonIdle = LoadSave.getSpriteAtlas("back01");
         backButtonHover = LoadSave.getSpriteAtlas("back02");
         resumeButtonInUse = resumeButtonIdle = LoadSave.getSpriteAtlas("replay01");
-        resumeButtonHover = LoadSave.getSpriteAtlas("replay02");
+        resumeButtonHover = LoadSave.getSpriteAtlas("replay03");
 
     }
 
@@ -70,11 +70,18 @@ public class Menu extends State implements Statemethods {
             }
         }
         // Draw buttons
-        if(isMenu) g.drawImage(playButtonInUse,Game.GAME_WIDTH/2 - playButtonIdle.getWidth()/2, Game.GAME_HEIGHT/4 - playButtonIdle.getHeight()/2, null);
-        else g.drawImage(resumeButtonIdle, Game.GAME_WIDTH/2 - resumeButtonInUse.getWidth()/2, Game.GAME_HEIGHT/4 - resumeButtonInUse.getHeight()/2, null);
-        g.drawImage(infoButtonInUse,Game.GAME_WIDTH/2 - playButtonIdle.getWidth()/2, Game.GAME_HEIGHT/4 + TILES_SIZE * 2 - infoButtonIdle.getHeight()/2, null);
-        g.drawImage(backButtonInUse,Game.GAME_WIDTH/2 - backButtonIdle.getWidth()/2, Game.GAME_HEIGHT/4 + TILES_SIZE * 4 - backButtonIdle.getHeight()/2, null);
-
+        if(isMenu) {
+            g.drawImage(playButtonInUse, Game.GAME_WIDTH / 2 - playButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 - playButtonIdle.getHeight() / 2, null);
+            g.drawImage(infoButtonInUse, Game.GAME_WIDTH / 2 - playButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 - infoButtonIdle.getHeight() / 2, null);
+            g.drawImage(backButtonInUse, Game.GAME_WIDTH / 2 - backButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 - backButtonIdle.getHeight() / 2, null);
+        }
+        else
+        {
+            g.drawImage(playButtonInUse, Game.GAME_WIDTH / 2 - playButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 - playButtonIdle.getHeight() / 2, null);
+            g.drawImage(infoButtonInUse, Game.GAME_WIDTH / 2 - playButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 - infoButtonIdle.getHeight() / 2, null);
+            g.drawImage(backButtonInUse, Game.GAME_WIDTH / 2 - backButtonIdle.getWidth() / 2, Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 - backButtonIdle.getHeight() / 2, null);
+            g.drawImage(resumeButtonIdle, Game.GAME_WIDTH/2 - resumeButtonInUse.getWidth()/2, Game.GAME_HEIGHT/4 - TILES_SIZE *2 - resumeButtonInUse.getHeight()/2, null);
+        }
     }
 
     @Override
@@ -108,9 +115,14 @@ public class Menu extends State implements Statemethods {
         }
         else
         if (xPos >= Game.GAME_WIDTH / 2 - resumeButtonIdle.getWidth() / 2 && xPos <= Game.GAME_WIDTH / 2 + resumeButtonIdle.getWidth() / 2) {
-            if (yPos >= Game.GAME_HEIGHT / 4 - resumeButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + resumeButtonIdle.getHeight() / 2) {
+            if (yPos >= Game.GAME_HEIGHT / 4 - TILES_SIZE * 2 -  resumeButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + resumeButtonIdle.getHeight() / 2) {
                 resumeButtonInUse = resumeButtonHover;
+                System.out.println("HI");
             } else resumeButtonInUse = resumeButtonIdle;
+            if (yPos >= Game.GAME_HEIGHT / 4 - playButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + playButtonIdle.getHeight() / 2) {
+                playButtonInUse = playButtonHover;
+            } else playButtonInUse = playButtonIdle;
+
             if (yPos >= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 - infoButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 + infoButtonIdle.getHeight() / 2) {
                 infoButtonInUse = infoButtonHover;
             } else infoButtonInUse = infoButtonIdle;
@@ -139,7 +151,7 @@ public class Menu extends State implements Statemethods {
                     Gamestate.state = Gamestate.PLAYING;
                     // information button open info page but here we used terminal
                 } else if (yPos >= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 - infoButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 + infoButtonIdle.getHeight() / 2) {
-                    System.out.println("INFO SCREEN");
+                    Gamestate.state = Gamestate.INFO;
                 }
                 // back button exit the game
                 else if (yPos >= Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 - backButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 + backButtonIdle.getHeight() / 2) {
@@ -154,7 +166,7 @@ public class Menu extends State implements Statemethods {
                 Gamestate.state = Gamestate.PLAYING;
                 // information button open info page but here we used terminal
             } else if (yPos >= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 - infoButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 + infoButtonIdle.getHeight() / 2) {
-                System.out.println("INFO SCREEN");
+                Gamestate.state = Gamestate.INFO;
             }
             // back button exit the game
             else if (yPos >= Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 - backButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 + backButtonIdle.getHeight() / 2) {
