@@ -1,8 +1,6 @@
 package entities;
 
-import main.Game;
-import utility.Sprites;
-
+import java.awt.*;
 import java.util.Random;
 
 // Base class for every moving object in game
@@ -20,6 +18,9 @@ public abstract class Entity {
         rand = new Random(); // Initializing the random number generator
         TOTAL_SHOTS = 3; // Setting the total number of shots allowed
     }
+
+    abstract public void update();
+    abstract public void render(Graphics g);
 
     // Getter method for the x-coordinate
     public float getX() {

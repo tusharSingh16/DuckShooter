@@ -159,9 +159,9 @@ public class Menu extends State implements Statemethods {
             }
         }
         else
-        if (xPos >= Game.GAME_WIDTH / 2 - resumeButtonInUse.getWidth() / 2 && xPos <= Game.GAME_WIDTH / 2 + resumeButtonInUse.getWidth() / 2) {
+        if (xPos >= Game.GAME_WIDTH / 2 - playButtonInUse.getWidth() / 2 && xPos <= Game.GAME_WIDTH / 2 + playButtonInUse.getWidth() / 2) {
             //play button opens the main game
-            if (yPos >= Game.GAME_HEIGHT / 4 - resumeButtonInUse.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + resumeButtonInUse.getHeight() / 2) {
+            if (yPos >= Game.GAME_HEIGHT / 4 - playButtonInUse.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + playButtonInUse.getHeight() / 2) {
                 Gamestate.state = Gamestate.PLAYING;
                 // information button open info page but here we used terminal
             } else if (yPos >= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 - infoButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + TILES_SIZE * 2 + infoButtonIdle.getHeight() / 2) {
@@ -170,6 +170,10 @@ public class Menu extends State implements Statemethods {
             // back button exit the game
             else if (yPos >= Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 - backButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + TILES_SIZE * 4 + backButtonIdle.getHeight() / 2) {
                 System.exit(0);
+            }
+            else if (yPos >= Game.GAME_HEIGHT / 4 - TILES_SIZE * 2 -  resumeButtonIdle.getHeight() / 2 && yPos <= Game.GAME_HEIGHT / 4 + resumeButtonIdle.getHeight() / 2) {
+                game.getPlaying().getlvlManager().startNew();
+                Gamestate.state = Gamestate.PLAYING;
             }
         }
     }

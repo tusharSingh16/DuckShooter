@@ -75,10 +75,15 @@ public class LevelManager { // Declaring the public class 'LevelManager'
             curLevel.updateLevel(); // Updating the current level
 
             // Re-initializing target manager and duck managers for the new level
-            tm = new TargetManager(curLevel, TargetManager.Y_POS_TOP);
-            dtm = new TargetManager(curLevel, TargetManager.Y_POS_MIDDLE);
-            dbm = new TargetManager(curLevel, TargetManager.Y_POS_BOTTOM);
+            startNew();
         }
+    }
+
+    public void startNew() {
+        tm = new TargetManager(curLevel, TargetManager.Y_POS_TOP);
+        dtm = new TargetManager(curLevel, TargetManager.Y_POS_MIDDLE);
+        dbm = new TargetManager(curLevel, TargetManager.Y_POS_BOTTOM);
+        scoreCounter = 0;
     }
     // Method to draw all elements on the screen
     public void draw(Graphics g) {
@@ -116,12 +121,6 @@ public class LevelManager { // Declaring the public class 'LevelManager'
         }
     }
 
-
-
-     // Getter method for the current leve
-    public Level getCurrentLevel() {
-        return curLevel;
-    }
      // Getter method for the crosshair
     public Crosshair getCrosshair() {
         return crosshair;
