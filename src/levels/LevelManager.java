@@ -75,7 +75,9 @@ public class LevelManager { // Declaring the public class 'LevelManager'
             curLevel.updateLevel(); // Updating the current level
 
             // Re-initializing target manager and duck managers for the new level
-            startNew();
+            tm = new TargetManager(curLevel, TargetManager.Y_POS_TOP);
+            dtm = new TargetManager(curLevel, TargetManager.Y_POS_MIDDLE);
+            dbm = new TargetManager(curLevel, TargetManager.Y_POS_BOTTOM);
         }
     }
 
