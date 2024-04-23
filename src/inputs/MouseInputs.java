@@ -32,6 +32,8 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
             case PLAYING:
                 gamePanel.getGame().getPlaying().mousePressed(e); // Handling mouse press event in the playing state
                 break;
+            case INFO:
+                gamePanel.getGame().getInfo().mousePressed(e);
             default:
                 break; // No action needed for other states
 
@@ -64,6 +66,8 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
             case PLAYING:
                 gamePanel.getGame().getPlaying().mouseDragged(e); // Handling mouse drag event in the playing state
                 break;
+            case INFO:
+                gamePanel.getGame().getInfo().mouseDragged(e);
             default:
                 break; // No action needed for other states
 
@@ -80,6 +84,8 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
             case PLAYING:
                 gamePanel.getGame().getPlaying().mouseMoved(e); // Handling mouse move event in the playing state
                 break;
+            case INFO:
+                gamePanel.getGame().getInfo().mouseMoved(e); // Handling mouse move event in the info state
             default:
                 break; // No action needed for other states
 

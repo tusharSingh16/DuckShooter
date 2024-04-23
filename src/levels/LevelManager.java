@@ -1,6 +1,6 @@
 package levels;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 import frames.*;
 import entities.Crosshair;
@@ -24,12 +24,15 @@ public class LevelManager { // Declaring the public class 'LevelManager'
     private DuckBottomManager dbm;
     private Crosshair crosshair;
 
+    private int scoreCounter ;
+    private boolean isGameOver = false;
 
     private String shotHit;
     private String shotMiss;
 
     // Constructor for the 'LevelManager' class, taking a 'Game' parameter
     public LevelManager(Game game) {
+        scoreCounter = 0;
         this.game = game; // Assigning the 'game' parameter to the 'game' instance variable
         curLevel = new Level(); // Creating a new 'Level' object and assigning it to 'curLevel'
 
@@ -90,8 +93,12 @@ public class LevelManager { // Declaring the public class 'LevelManager'
         if3.render(g); // Rendering intermediate frame 3
         crosshair.render(g);  // Rendering the crosshair
         tf.render(g); // Rendering the top frame
-        //Displaying current level information on screen
-        g.drawString("Current Level: " + curLevel.curLevel,  Game.GAME_WIDTH-110, Game.GAME_HEIGHT-10);
+        g.drawString("Current Level: " + curLevel.curLevel,  Game.GAME_WIDTH-110, Game.GAME_HEIGHT-10);//Displaying current level information on screen
+        g.setFont(new Font("Arial",Font.BOLD,20));
+        g.setColor(Color.WHITE);
+        g.drawString("Current Score: " + scoreCounter, Game.GAME_WIDTH /2 , 20);//Displaying the score
+
+
     }
     // Method to handle a shot fired by the player
     public void handleShot(int x, int y) {
@@ -104,10 +111,13 @@ public class LevelManager { // Declaring the public class 'LevelManager'
         // Playing sound effects based on whether any target or duck was hit
         if (hit1 || hit2 || hit3) {
             LoadSave.playSound(shotHit);// Playing the gunshot sound
+            scoreCounter ++;
         } else {
             LoadSave.playSound(shotMiss);// Playing the miss sound
         }
     }
+
+
 
      // Getter method for the current leve
     public Level getCurrentLevel() {
